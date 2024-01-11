@@ -21,10 +21,10 @@ spec:
             - name: KUMULUZEE_DATASOURCES0_USERNAME
               value: iyljirkx
             - name: KUMULUZEE_DATASOURCES0_PASSWORD
-              value: hzSKsxl3Qdm76cFMC3OqHyH8xTvwrb3J
-              valueFrom: #use Kubernetes secret for storing the password
-               # secretKeyRef: 
-                ## key: #to be added
+              valueFrom:
+                secretKeyRef:
+                  name: pg-pass
+                  key: password-location
           ports:
             - containerPort: 8085
               name: server
