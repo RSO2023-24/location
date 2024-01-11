@@ -1,33 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pohodnik-deployment
+  name: location-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: pohodnik
+      app: location
   template:
     metadata:
       labels:
-        app: pohodnik
+        app: location
     spec:
       containers:
-        - image: pockar/pohodnik:latest
-          name: pohodnik
+        - image: pockar/location:latest
+          name: location
           env:
             - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
               value: jdbc:postgresql://balarama.db.elephantsql.com:5432/iyljirkx
-              
             - name: KUMULUZEE_DATASOURCES0_USERNAME
               value: iyljirkx
             - name: KUMULUZEE_DATASOURCES0_PASSWORD
-              #value:
+              value: hzSKsxl3Qdm76cFMC3OqHyH8xTvwrb3J
               valueFrom: #use Kubernetes secret for storing the password
                # secretKeyRef: 
                 ## key: #to be added
           ports:
-            - containerPort: 8080
+            - containerPort: 8085
               name: server
 
 ---
@@ -35,12 +34,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: pohodnik
+  name: location
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
-    - port: 8080
+    - port: 8085
       protocol: TCP
       targetPort: server
   selector:
-    app: pohodnik
+    app: location

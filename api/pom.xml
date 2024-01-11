@@ -37,6 +37,11 @@
             <artifactId>kumuluzee-logs-log4j2</artifactId>
             <version>1.4.0</version>
         </dependency>
+        <dependency>
+            <artifactId>kumuluzee-logs-log4j2</artifactId>
+            <groupId>com.kumuluz.ee.logs</groupId>
+            <version>1.4.0</version>
+        </dependency>
 
         <dependency>
             <groupId>si.fri.rso.location</groupId>

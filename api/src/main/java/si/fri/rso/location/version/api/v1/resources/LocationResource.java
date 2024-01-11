@@ -40,10 +40,10 @@ public class LocationResource {
     @Context
     protected UriInfo uriInfo;
 
-    @Operation(description = "Get all image metadata.", summary = "Get all metadata")
+    @Operation(description = "Get all location metadata.", summary = "Get all metadata")
     @APIResponses({
             @APIResponse(responseCode = "200",
-                    description = "List of image metadata",
+                    description = "List of location metadata",
                     content = @Content(schema = @Schema(implementation = Location.class, type = SchemaType.ARRAY)),
                     headers = {@Header(name = "X-Total-Count", description = "Number of objects in list")}
             )})
@@ -56,10 +56,10 @@ public class LocationResource {
     }
 
 
-    @Operation(description = "Get metadata for an image.", summary = "Get metadata for an image")
+    @Operation(description = "Get metadata for an location.", summary = "Get metadata for an location")
     @APIResponses({
             @APIResponse(responseCode = "200",
-                    description = "Image metadata",
+                    description = "location metadata",
                     content = @Content(
                             schema = @Schema(implementation = Location.class))
             )})
@@ -77,7 +77,7 @@ public class LocationResource {
         return Response.status(Response.Status.OK).entity(Location).build();
     }
 
-    @Operation(description = "Add image metadata.", summary = "Add metadata")
+    @Operation(description = "Add location metadata.", summary = "Add metadata")
     @APIResponses({
             @APIResponse(responseCode = "201",
                     description = "Metadata successfully added."
@@ -86,7 +86,7 @@ public class LocationResource {
     })
     @POST
     public Response createLocation(@RequestBody(
-            description = "DTO object with image metadata.",
+            description = "DTO object with location metadata.",
             required = true, content = @Content(
             schema = @Schema(implementation = Location.class))) Location Location) {
 
@@ -102,7 +102,7 @@ public class LocationResource {
     }
 
 
-    @Operation(description = "Update metadata for an image.", summary = "Update metadata")
+    @Operation(description = "Update metadata for an location.", summary = "Update metadata")
     @APIResponses({
             @APIResponse(
                     responseCode = "200",
@@ -114,7 +114,7 @@ public class LocationResource {
     public Response putLocation(@Parameter(description = "Metadata ID.", required = true)
                                      @PathParam("LocationId") Integer LocationId,
                                      @RequestBody(
-                                             description = "DTO object with image metadata.",
+                                             description = "DTO object with location metadata.",
                                              required = true, content = @Content(
                                              schema = @Schema(implementation = Location.class)))
                                              Location Location){
@@ -129,7 +129,7 @@ public class LocationResource {
 
     }
 
-    @Operation(description = "Delete metadata for an image.", summary = "Delete metadata")
+    @Operation(description = "Delete metadata for an location.", summary = "Delete metadata")
     @APIResponses({
             @APIResponse(
                     responseCode = "200",
