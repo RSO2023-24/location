@@ -13,7 +13,7 @@ spec:
         app: location
     spec:
       containers:
-        - image: pockar/location:latest
+        - image: pockar/location2:latest
           name: location
           env:
             - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
@@ -26,7 +26,7 @@ spec:
                   name: pg-pass
                   key: password-location
           ports:
-            - containerPort: 8085
+            - containerPort: 8090
               name: server
 
 ---
@@ -38,7 +38,7 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-    - port: 8085
+    - port: 8090
       protocol: TCP
       targetPort: server
   selector:

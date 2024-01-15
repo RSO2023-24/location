@@ -26,7 +26,7 @@ import java.util.logging.Logger;
 
 
 @ApplicationScoped
-@Path("/Locations")
+@Path("/location")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class LocationResource {
@@ -95,9 +95,10 @@ public class LocationResource {
         }
         else {
             Location = LocationBean.createLocation(Location);
+            return Response.status(Response.Status.CREATED).entity(Location).build();
         }
 
-        return Response.status(Response.Status.CONFLICT).entity(Location).build();
+        
 
     }
 

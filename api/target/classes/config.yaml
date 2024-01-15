@@ -4,9 +4,9 @@ kumuluzee:
     name: dev
   version: 1.0.0
   server:
-    base-url: http://localhost:8085
+    base-url: http://localhost:8090
     http:
-      port: 8085
+      port: 8090
   datasources:
     - jndi-name: jdbc/locationDS
       connection-url: jdbc:postgresql://localhost:5432/location

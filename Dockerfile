@@ -6,7 +6,7 @@ WORKDIR /app
 
 ADD ./api/target/location-api-1.0.0-SNAPSHOT.jar /app
 
-EXPOSE 8085
+EXPOSE 8090
 
 CMD ["java", "-jar", "location-api-1.0.0-SNAPSHOT.jar"]
 #ENTRYPOINT ["java", "-jar", "location-api-1.0.0-SNAPSHOT.jar"]
