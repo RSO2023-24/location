@@ -23,8 +23,8 @@ spec:
             - name: KUMULUZEE_DATASOURCES0_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: pg-pass
-                  key: password-location
+                  name: pg-pass-location
+                  key: password
           ports:
             - containerPort: 8090
               name: server
